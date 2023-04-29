@@ -119,7 +119,14 @@ let map;
                 handlePickupChanged();
 
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-
+                
+                // Draw a line showing the straight distance between the markers
+                var points = [WildRydes.map.selectedPoint, WildRydes.marker];
+                var polyLine = new L.polyline(points ,{
+                    color: 'green',
+                    weight: 5,
+                    opacity: 1,
+                });
                 // popup
                 //     .setLatLng(e.latlng)
                 //     .setContent("You clicked the map at " + e.latlng.toString())
