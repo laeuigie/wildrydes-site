@@ -121,17 +121,17 @@ let map;
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
                 
                 // Draw a line showing the straight distance between the markers
-                var points = [WildRydes.marker, WildRydes.unicorn];
-                var polyLine = new L.polyline(points , {
-                     color: 'black',
-                    weight: 50,
-                     opacity: 1
-                });
-                polyLine.addTo(map);
-                // popup
-                //     .setLatLng(e.latlng)
-                //     .setContent("You clicked the map at " + e.latlng.toString())
-                //     .openOn(map);
+                // var points = [WildRydes.marker, WildRydes.unicorn];
+                // var polyLine = new L.polyline(points , {
+                //      color: 'black',
+                //      weight: 50,
+                //      opacity: 1
+                // });
+                // polyLine.addTo(map);
+                 popup
+                     .setLatLng(e.latlng)
+                     .setContent("You clicked the map at " + e.latlng.toString())
+                     .openOn(map);
             }
         }
     });
