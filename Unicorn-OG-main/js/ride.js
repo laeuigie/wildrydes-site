@@ -126,7 +126,8 @@ let map;
                     color: 'green',
                     weight: 5,
                     opacity: 1
-                }).addto(map);
+                });
+                polyLine.addTo(map);
                 // popup
                 //     .setLatLng(e.latlng)
                 //     .setContent("You clicked the map at " + e.latlng.toString())
