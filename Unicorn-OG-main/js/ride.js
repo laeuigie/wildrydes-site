@@ -123,8 +123,8 @@ let map;
                 // Draw a line showing the straight distance between the markers
                 var points = [WildRydes.map.selectedPoint, WildRydes.unicorn];
                 var polyLine = new L.polyline(points , {
-                    color: 'green',
-                    weight: 5,
+                    color: 'black',
+                    weight: 50,
                     opacity: 1
                 });
                 polyLine.addTo(map);
