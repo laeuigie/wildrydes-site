@@ -136,6 +136,9 @@ let map;
                      //opacity: 1
                 });
                 polyline.addTo(map);
+
+                let _length = map.distance(points);
+                document.getElementById('length').innerHTML = _length;
             }
 
             
