@@ -148,14 +148,7 @@ let map;
         var requestButton = $('#request');
         requestButton.text('Request Unicorn');
         requestButton.prop('disabled', false);
-
-        var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
-            color: 'red'
-        })                   
-        polyline.addTo(map);
-
-        let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-        document.getElementById('length').innerHTML = _length;
+        
     }
 
     //  handleRequestClick
@@ -190,6 +183,14 @@ let map;
         }
 
         WildRydes.map.animate(origin, dest, callback);
+
+        var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+            color: 'red'
+        })                   
+        polyline.addTo(map);
+
+        let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+        document.getElementById('length').innerHTML = _length;
     }
 
 
