@@ -4,6 +4,12 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 let map;
 
+let 
+_polyline,
+_length,
+markerA = null,
+markerB = null;
+
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
@@ -111,11 +117,6 @@ let map;
             //WildRydes.marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
             //WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
 
-            var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
-                     color: 'red'
-                })                   
-                 polyline.addTo(map);
-
             var popup = L.popup();
             //var currLocPopup = L.popup();
             map.on('click', onMapClick);
@@ -152,7 +153,15 @@ let map;
         
     });
 
-    
+    map.on('click', function(e) {
+        _polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+            color: 'red'
+        });
+        _polyline.addTo(map);
+
+        _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+        document.getElementById('length').innerHTML = _length;
+    });
 
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
