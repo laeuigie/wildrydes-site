@@ -122,20 +122,22 @@ let map;
 
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
                 
-                // Draw a line showing the straight distance between the markers
-                // var points = [WildRydes.marker, WildRydes.unicorn];
-                // var polyLine = new L.polyline(points , {
-                //      color: 'black',
-                //      weight: 50,
-                //      opacity: 1
-                // });
-                // polyLine.addTo(map);
+                
                  popup
                      .setLatLng(e.latlng)
                      .setContent("You clicked the map at " + e.latlng.toString())
                      .openOn(map);
             }
         }
+
+        //Draw a line showing the straight distance between the markers
+                var points = [WildRydes.marker, WildRydes.map.selectedPoint];
+                var polyLine = new L.polyline(points , {
+                     color: 'black',
+                     weight: 50,
+                     opacity: 1
+                });
+                polyLine.addTo(map);
     });
 
     //  handlePickupChanged
@@ -153,7 +155,7 @@ let map;
 
         event.preventDefault();
         requestUnicorn(pickupLocation);
-        WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
+     // /*->*/  WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
     }
 
     //  animateArrival
