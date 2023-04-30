@@ -109,7 +109,12 @@ let map;
             });
             WildRydes.unicorn = L.marker([loc.coords.latitude, loc.coords.longitude], {icon: myIcon}).addTo(map);
             //WildRydes.marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-            WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
+            //WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
+
+            var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
+                     color: 'red'
+                })                   
+                 polyline.addTo(map);
 
             var popup = L.popup();
             //var currLocPopup = L.popup();
@@ -124,6 +129,13 @@ let map;
                 
                 //Draw a line showing the straight distance between the markers
                // var points = [];
+            //    var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
+            //     color: 'red'
+            // })                   
+            // polyline.addTo(map);
+    
+            // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+            // document.getElementById('length').innerHTML = _length;
                 
                 
                  popup
@@ -184,13 +196,7 @@ let map;
 
         WildRydes.map.animate(origin, dest, callback);
 
-        var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
-            color: 'red'
-        })                   
-        polyline.addTo(map);
-
-        let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-        document.getElementById('length').innerHTML = _length;
+        
     }
 
 
