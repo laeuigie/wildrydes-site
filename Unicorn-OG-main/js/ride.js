@@ -184,7 +184,7 @@ let map;
 
         WildRydes.map.animate(origin, dest, callback);
 
-        var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+        var polyline = L.polyline([WildRydes.marker, pickupLocation], {
             color: 'red'
         })                   
         polyline.addTo(map);
