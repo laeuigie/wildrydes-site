@@ -112,7 +112,7 @@ let map;
             WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
 
             var popup = L.popup();
-            var currLocPopup = L.popup();
+            //var currLocPopup = L.popup();
             map.on('click', onMapClick);
 
             function onMapClick(e) {            //  TODO move to esri.js
@@ -153,6 +153,7 @@ let map;
 
         event.preventDefault();
         requestUnicorn(pickupLocation);
+        WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
     }
 
     //  animateArrival
