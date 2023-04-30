@@ -122,7 +122,15 @@ let map;
 
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
                 
-                
+                //Draw a line showing the straight distance between the markers
+               // var points = [];
+                var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+                    color: 'red'
+                })                   
+                polyline.addTo(map);
+
+                let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+                document.getElementById('length').innerHTML = _length;
                 
                  popup
                      .setLatLng(e.latlng)
@@ -151,23 +159,11 @@ let map;
     function handleRequestClick(event) {
         var pickupLocation =  WildRydes.map.selectedPoint;
 
-        //Draw a line showing the straight distance between the markers
-        var points = [WildRydes.marker, WildRydes.map.selectedPoint];
-        var polyline = new L.polyline(points , {
-             color: 'black',
-             //weight: 50,
-             //opacity: 1
-        });
-        polyline.addTo(map);
-
-        let _length = map.distance(points);
-        document.getElementById('length').innerHTML = _length;
-        
         event.preventDefault();
         requestUnicorn(pickupLocation);
 
 
-
+        
      // /*->*/  WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
     }
 
