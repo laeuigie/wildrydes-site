@@ -124,13 +124,7 @@ let map;
                 
                 //Draw a line showing the straight distance between the markers
                // var points = [];
-                var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
-                    color: 'red'
-                })                   
-                polyline.addTo(map);
-
-                let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-                document.getElementById('length').innerHTML = _length;
+                
                 
                  popup
                      .setLatLng(e.latlng)
@@ -146,12 +140,22 @@ let map;
         
     });
 
+    
+
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
     function handlePickupChanged() {
         var requestButton = $('#request');
         requestButton.text('Request Unicorn');
         requestButton.prop('disabled', false);
+
+        var polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+            color: 'red'
+        })                   
+        polyline.addTo(map);
+
+        let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+        document.getElementById('length').innerHTML = _length;
     }
 
     //  handleRequestClick
