@@ -130,12 +130,12 @@ let map;
 
                      //Draw a line showing the straight distance between the markers
                 var points = [WildRydes.marker, WildRydes.map.selectedPoint];
-                var polyLine = new L.polyline(points , {
+                var polyline = new L.polyline(points , {
                      color: 'black',
-                     weight: 50,
-                     opacity: 1
+                     //weight: 50,
+                     //opacity: 1
                 });
-                polyLine.addTo(map);
+                polyline.addTo(map);
             }
 
             
