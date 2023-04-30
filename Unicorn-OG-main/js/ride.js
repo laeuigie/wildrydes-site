@@ -4,11 +4,11 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 let map;
 
-let 
-_polyline,
-_length,
-markerA = null,
-markerB = null;
+// let 
+// _polyline,
+// _length,
+// markerA = null,
+// markerB = null;
 
 (function rideScopeWrapper($) {
     var authToken;
@@ -153,15 +153,15 @@ markerB = null;
         
     });
 
-    map.on('click', function(e) {
-        _polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
-            color: 'red'
-        });
-        _polyline.addTo(map);
+    // map.on('click', function(e) {
+    //     _polyline = L.polyline([WildRydes.marker, WildRydes.map.selectedPoint], {
+    //         color: 'red'
+    //     });
+    //     _polyline.addTo(map);
 
-        _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-        document.getElementById('length').innerHTML = _length;
-    });
+    //     _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+    //     document.getElementById('length').innerHTML = _length;
+    // });
 
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
