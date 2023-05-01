@@ -124,17 +124,7 @@ let map;
             //var currLocPopup = L.popup();
             map.on('click', onMapClick);
 
-            var firstPoint = L.marker([loc.coords.latitude, loc.coords.longitude]);
-                var secondPoint = L.marker([e.latlng.lat, e.latlng.lng]);
-                var polyline;
-
-            // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-            // document.getElementById('length').innerHTML = _length;
             
-                L.polyline([firstPoint, secondPoint], {
-                    color: 'red'
-                  })
-                  polyline.addTo(map);
               
                   //refreshDistanceAndLength();
             
@@ -154,7 +144,20 @@ let map;
             // })                   
             // polyline.addTo(map);
                 
-                
+            var firstPoint = L.marker([loc.coords.latitude, loc.coords.longitude]);
+            var secondPoint = L.marker([e.latlng.lat, e.latlng.lng]);
+            var polyline;
+
+        // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+        // document.getElementById('length').innerHTML = _length;
+        
+            L.polyline([firstPoint, secondPoint], {
+                color: 'red'
+              })
+              polyline.addTo(map);
+
+
+
                  popup
                      .setLatLng(e.latlng)
                      .setContent("You clicked the map at " + e.latlng.toString())
