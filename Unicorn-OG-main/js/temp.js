@@ -1,4 +1,5 @@
-options = {
+L.control.polylineMeasure().addTo(map);
+var options = {
     position: 'topleft',
     unit: 'landmiles',
     clearMeasurementsOnStop: true,
@@ -9,7 +10,5 @@ options = {
         weight: 2
     },
 }
-
-
-
+L.control.polylineMeasure(options).addTo(map);
 
