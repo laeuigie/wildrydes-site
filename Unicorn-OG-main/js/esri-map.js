@@ -16,7 +16,7 @@ WildRydes.map = WildRydes.map || {};
         let lngInc = (dest.longitude - latlng.lng) / 100;
 
         clearInterval(id);
-        id = setInterval(frame, 5);
+        id = setInterval(frame, 1000);
         function frame() {
             if (tick === 100) {
                 clearInterval(id);
