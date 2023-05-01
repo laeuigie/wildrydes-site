@@ -130,23 +130,26 @@ let map;
                 handlePickupChanged();
 
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-                if(WildRydes.map.selectedPoint, WildRydes.marker){
-                    L.polyline([WildRydes.map.selectedPoint, WildRydes.marker], {
-                        color: 'red'
-                      }).addTo(map);
-                  
-                      refreshDistanceAndLength();
-                }
+
+                
                 //Draw a line showing the straight distance between the markers
                // var points = [];
             //    var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
             //     color: 'red'
             // })                   
             // polyline.addTo(map);
-    
+                var firstPoint = L.marker([loc.coords.latitude, loc.coords.longitude]);
+                var secondPoint = L.marker([e.latlng.lat, e.latlng.lng]);
+
             // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
             // document.getElementById('length').innerHTML = _length;
-                
+            if(firstPoint, secondPoint){
+                L.polyline([firstPoint, secondPoint], {
+                    color: 'red'
+                  }).addTo(map);
+              
+                  //refreshDistanceAndLength();
+            }
                 
                  popup
                      .setLatLng(e.latlng)
@@ -174,12 +177,12 @@ let map;
 
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
-    function refreshDistanceAndLength() {
-        _distance = L.GeometryUtil.distance(map, WildRydes.map.selectedPoint, WildRydes.marker);
-        _length = L.GeometryUtil.length([WildRydes.map.selectedPoint, WildRydes.marker]);
-        document.getElementById('distance').innerHTML = _distance;
-        document.getElementById('length').innerHTML = _length;
-      }
+    // function refreshDistanceAndLength() {
+    //     _distance = L.GeometryUtil.distance(map, WildRydes.map.selectedPoint, WildRydes.marker);
+    //     _length = L.GeometryUtil.length([WildRydes.map.selectedPoint, WildRydes.marker]);
+    //     document.getElementById('distance').innerHTML = _distance;
+    //     document.getElementById('length').innerHTML = _length;
+    //   }
 
 
     function handlePickupChanged() {
