@@ -118,7 +118,7 @@ let map;
             });
             WildRydes.unicorn = L.marker([loc.coords.latitude, loc.coords.longitude], {icon: myIcon}).addTo(map);
             //WildRydes.marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-            //WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
+            WildRydes.unicorn.bindPopup("<b>You are here.</b>").openPopup();
 
             var popup = L.popup();
             //var currLocPopup = L.popup();
