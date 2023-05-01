@@ -175,8 +175,8 @@ let map;
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
     function refreshDistanceAndLength() {
-        _distance = L.GeometryUtil.distance(_map, _firstLatLng, _secondLatLng);
-        _length = L.GeometryUtil.length([_firstPoint, _secondPoint]);
+        _distance = L.GeometryUtil.distance(map, WildRydes.map.selectedPoint, WildRydes.marker);
+        _length = L.GeometryUtil.length([WildRydes.map.selectedPoint, WildRydes.marker]);
         document.getElementById('distance').innerHTML = _distance;
         document.getElementById('length').innerHTML = _length;
       }
