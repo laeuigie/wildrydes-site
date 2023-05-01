@@ -10,6 +10,6 @@ options = {
     },
 }
 
-L.control.polylineMeasure(options).addTo(map);
+
 
 

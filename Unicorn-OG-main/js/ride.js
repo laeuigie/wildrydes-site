@@ -76,6 +76,8 @@ let map;
 
     // Register click handler for #request button
     $(function onDocReady() {
+        L.control.polylineMeasure(options).addTo(map);
+
         $('#request').click(handleRequestClick);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
