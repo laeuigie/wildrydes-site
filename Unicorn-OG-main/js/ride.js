@@ -4,7 +4,7 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 let map;
 
-L.control.polylineMeasure(options).addTo(map);
+
 
 // let 
 // _polyline,
