@@ -124,6 +124,19 @@ let map;
             //var currLocPopup = L.popup();
             map.on('click', onMapClick);
 
+            var firstPoint = L.marker([loc.coords.latitude, loc.coords.longitude]);
+                var secondPoint = L.marker([e.latlng.lat, e.latlng.lng]);
+
+            // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
+            // document.getElementById('length').innerHTML = _length;
+            if(firstPoint, secondPoint){
+                L.polyline([firstPoint, secondPoint], {
+                    color: 'red'
+                  }).addTo(map);
+              
+                  //refreshDistanceAndLength();
+            }
+
             function onMapClick(e) {            //  TODO move to esri.js
                 WildRydes.map.selectedPoint = {longitude: e.latlng.lng, latitude: e.latlng.lat};
                 if (WildRydes.marker)       WildRydes.marker.remove();
@@ -138,18 +151,7 @@ let map;
             //     color: 'red'
             // })                   
             // polyline.addTo(map);
-                var firstPoint = L.marker([loc.coords.latitude, loc.coords.longitude]);
-                var secondPoint = L.marker([e.latlng.lat, e.latlng.lng]);
-
-            // let _length = map.distance(WildRydes.marker, WildRydes.map.selectedPoint);
-            // document.getElementById('length').innerHTML = _length;
-            if(firstPoint, secondPoint){
-                L.polyline([firstPoint, secondPoint], {
-                    color: 'red'
-                  }).addTo(map);
-              
-                  //refreshDistanceAndLength();
-            }
+                
                 
                  popup
                      .setLatLng(e.latlng)
