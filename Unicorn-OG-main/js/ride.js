@@ -130,7 +130,13 @@ let map;
                 handlePickupChanged();
 
                 WildRydes.marker  = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-                
+                if(WildRydes.map.selectedPoint, WildRydes.marker){
+                    L.polyline([WildRydes.map.selectedPoint, WildRydes.marker], {
+                        color: 'red'
+                      }).addTo(map);
+                  
+                      refreshDistanceAndLength();
+                }
                 //Draw a line showing the straight distance between the markers
                // var points = [];
             //    var polyline = L.polyline([WildRydes.unicorn, WildRydes.map.selectedPoint], {
@@ -168,6 +174,14 @@ let map;
 
     //  handlePickupChanged
     //      enable the Pickup button and set text to Request Unicorn
+    function refreshDistanceAndLength() {
+        _distance = L.GeometryUtil.distance(_map, _firstLatLng, _secondLatLng);
+        _length = L.GeometryUtil.length([_firstPoint, _secondPoint]);
+        document.getElementById('distance').innerHTML = _distance;
+        document.getElementById('length').innerHTML = _length;
+      }
+
+
     function handlePickupChanged() {
         var requestButton = $('#request');
         requestButton.text('Request Unicorn');
