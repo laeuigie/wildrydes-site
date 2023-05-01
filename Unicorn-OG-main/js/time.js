@@ -16,6 +16,6 @@ function timerStart(duration, display){
 
 window.onload = function() {
     var fivesecs = 60 / 12,
-        display = document.querySelector('#time');
+        display = document.querySelector('time');
         startTimer(fivesecs, display);
 };
