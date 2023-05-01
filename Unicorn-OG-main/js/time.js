@@ -1,5 +1,5 @@
-function timer(duration, show){
-    var time = duration, seconds;
+function timerStart(duration, display){
+    var timer = duration, seconds;
     setInterval(function() {
         seconds = parseInt(timer % 60, 10);
 
@@ -15,7 +15,7 @@ function timer(duration, show){
 }
 
 window.onload = function() {
-    var twentysecs = 60/3,
+    var fivesecs = 60 / 12,
         display = document.querySelector('#time');
-        startTimer(twentysecs, display);
+        startTimer(fivesecs, display);
 };

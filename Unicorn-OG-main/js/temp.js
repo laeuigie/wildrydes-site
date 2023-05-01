@@ -60,6 +60,6 @@ _map.on('zoomend', function(e) {
 function refreshDistanceAndLength() {
   _distance = L.GeometryUtil.distance(_map, _firstLatLng, _secondLatLng);
   _length = L.GeometryUtil.length([_firstPoint, _secondPoint]);
-  document.getElementById('distance').innerHTML = _distance;
+  //document.getElementById('distance').innerHTML = _distance;
   document.getElementById('length').innerHTML = _length;
 }
